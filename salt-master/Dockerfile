@@ -19,3 +19,13 @@ RUN apt-get -y install python-software-properties
 RUN add-apt-repository ppa:saltstack/salt
 RUN apt-get update
 RUN apt-get -y install salt-master
+
+RUN mkdir /apps
+RUN mkdir /apps/scripts
+RUN mkdir /apps/installs
+RUN chmod 777 -R /apps
+
+ADD scripts/startup.sh /apps/scripts/startup.sh
+RUN chmod +x /apps/scripts/startup.sh
+
+CMD ["/apps/scripts/startup.sh"]
