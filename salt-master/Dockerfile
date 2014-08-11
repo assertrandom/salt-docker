@@ -23,9 +23,17 @@ RUN apt-get -y install salt-master
 RUN mkdir /apps
 RUN mkdir /apps/scripts
 RUN mkdir /apps/installs
+RUN mkdir /apps/data
 RUN chmod 777 -R /apps
+
+VOLUME ["/data"]
+
+ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 
 ADD scripts/startup.sh /apps/scripts/startup.sh
 RUN chmod +x /apps/scripts/startup.sh
+
+EXPOSE 4505
+EXPOSE 4506
 
 CMD ["/apps/scripts/startup.sh"]
