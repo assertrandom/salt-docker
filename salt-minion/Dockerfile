@@ -14,6 +14,8 @@ RUN apt-get -y install vim
 RUN apt-get -y install openjdk-7-jdk
 RUN apt-get -y install python
 
+RUN apt-get -y install inetutils-ping
+
 
 RUN apt-get -y install python-software-properties
 RUN add-apt-repository ppa:saltstack/salt
