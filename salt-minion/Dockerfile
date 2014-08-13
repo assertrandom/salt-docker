@@ -6,6 +6,9 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
 RUN apt-get update
+RUN apt-get -y upgrade
+RUN echo "root:$MYPASSWORD" | chpasswd
+
 RUN apt-get -y install perl
 RUN apt-get -y install tar
 RUN apt-get -y install wget
