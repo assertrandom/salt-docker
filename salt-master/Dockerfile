@@ -35,7 +35,7 @@ RUN chmod 777 -R /apps
 
 VOLUME ["/data"]
 
-ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
+#ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 
 ADD scripts/startup.sh /apps/scripts/startup.sh
 RUN chmod +x /apps/scripts/startup.sh
@@ -62,7 +62,7 @@ EXPOSE 22
 
 RUN /bin/echo -e "[program:sshd]\ndirectory=/usr/local\ncommand=/usr/sbin/sshd -D\nautostart=true\nautorestart=true\nredirect_stderr=true\n" >>/etc/supervisord.conf
 
-ENTRYPOINT ["/usr/bin/supervisord","-n"]
+#ENTRYPOINT ["/usr/bin/supervisord","-n"]
 
 EXPOSE 4505
 EXPOSE 4506
