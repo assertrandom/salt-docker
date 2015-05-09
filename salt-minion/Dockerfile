@@ -1,6 +1,6 @@
 FROM ubuntu:precise
 
-MAINTAINER Manav Leslie "manav.leslie@gmail.com"
+MAINTAINER mlk
 
 ENV DEBIAN_FRONTEND noninteractive
 
